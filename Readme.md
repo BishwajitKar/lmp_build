@@ -1,12 +1,14 @@
-#Downloading and Renaming the File
-wget -q https://download.lammps.org/tars/lammps-stable.tar.gz -O lammps_stable.tar.gz
+# Downloading and Renaming the File
+`wget -q https://download.lammps.org/tars/lammps-stable.tar.gz -O lammps_stable.tar.gz`
 
-#Extracting the File
-tar xzf lammps_stable.tar.gz
+# Extracting the File
+`tar xzf lammps_stable.tar.gz`
 
-sudo apt install libfftw3-dev clang-format-8
+# Install necessary libraries
+`sudo apt install libfftw3-dev clang-format-8`
 
-cd /content/lammps-*/
+# Build LAMMPS
+`cd /content/lammps-*/
 mkdir -p build && cd build
 cmake -C ../cmake/presets/basic.cmake -C ../cmake/presets/nolib.cmake \
 -D PKG_KSPACE=on \
@@ -20,4 +22,4 @@ cmake -C ../cmake/presets/basic.cmake -C ../cmake/presets/nolib.cmake \
 -D FFT=FFTW3 \
 -D FFT_SINGLE=no \
 ../cmake
-cmake --build . && make install
+cmake --build . && make install`
